@@ -1,0 +1,10 @@
+kind: pipeline
+name: default
+
+steps:
+  - name: test
+    image: cirrusci/flutter:stable
+    commands:
+      - sudo chown -R cirrus:cirrus .
+      - flutter doctor
+      - flutter test
