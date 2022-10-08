@@ -11,7 +11,7 @@ class CodeShowRoom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 300,
+      height: MediaQuery.of(context).size.height * 0.3,
       width: MediaQuery.of(context).size.width,
       decoration: const BoxDecoration(color: Color(0xFFFFFFFF)),
       child: SingleChildScrollView(
