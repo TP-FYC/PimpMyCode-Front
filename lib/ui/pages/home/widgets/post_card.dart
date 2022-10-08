@@ -105,7 +105,7 @@ class PostCard extends StatelessWidget {
             height: MediaQuery.of(context).size.height * 0.8,
             title: buildCardHeader(context),
             content: SizedBox(
-              height: MediaQuery.of(context).size.height * 0.6,
+              height: MediaQuery.of(context).size.height * 0.5,
               child: content(),
             ),
             buttonBar: buttonBar(),
