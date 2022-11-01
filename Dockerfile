@@ -3,12 +3,10 @@ FROM debian:latest AS build-env
 
 ARG BACKEND
 ARG WEB_URL
-ARG LIVE_BACKEND
 
 ENV \
 BACKEND=${BACKEND} \
-WEB_URL=${WEB_URL} \
-LIVE_BACKEND=${LIVE_BACKEND}
+WEB_URL=${WEB_URL}
 
 # Install flutter dependencies
 RUN apt-get update
@@ -26,7 +24,7 @@ RUN flutter upgrade
 RUN mkdir /app/
 COPY . /app/
 WORKDIR /app/
-RUN flutter build web --dart-define=BACKEND=${BACKEND} --dart-define=WEB_URL=${WEB_URL} --dart-define=LIVE_BACKEND=${LIVE_BACKEND}
+RUN flutter build web --dart-define=BACKEND=${BACKEND} --dart-define=WEB_URL=${WEB_URL}
 # Stage 2 - Create the run-time image
 FROM nginx:1.21.1-alpine
 COPY --from=build-env /app/build/web /usr/share/nginx/html
